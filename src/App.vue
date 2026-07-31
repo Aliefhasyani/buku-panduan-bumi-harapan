@@ -24,7 +24,7 @@ const handleNavigate = (page: string) => {
   <div class="min-h-screen bg-slate-50 text-slate-800 font-sans scroll-smooth">
     <Navbar @navigate="handleNavigate" />
     
-    <Home v-if="currentPage === 'home'" />
+    <Home v-if="currentPage === 'home'" @navigate="handleNavigate" />
     <Faq v-else-if="currentPage === 'faq'" />
     <RocketStove v-else-if="currentPage === 'rocket-stove'" @navigate="handleNavigate" />
     <SosialisasiSampah v-else-if="currentPage === 'sosialisasi-sampah'" @navigate="handleNavigate" />

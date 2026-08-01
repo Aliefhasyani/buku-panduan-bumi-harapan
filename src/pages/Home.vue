@@ -4,7 +4,29 @@ import { ref } from 'vue'
 
 const emit = defineEmits(['navigate'])
 
-const listProker = [
+// Tipe warna yang valid sesuai key colorMap
+type ProkerColor = 'orange' | 'teal' | 'lime' | 'sky' | 'emerald' | 'violet' | 'amber' | 'rose'
+
+interface ColorConfig {
+  bg: string
+  border: string
+  text: string
+  hoverBorder: string
+  hoverShadow: string
+  iconBg: string
+  iconBorder: string
+  tag: string
+}
+
+interface Proker {
+  nama: string
+  slug: string
+  icon: string
+  desc: string
+  color: ProkerColor
+}
+
+const listProker: Proker[] = [
   {
     nama: 'Rocket Stove',
     slug: 'rocket-stove',
@@ -63,7 +85,7 @@ const listProker = [
   },
 ]
 
-const colorMap: Record<string, { bg: string; border: string; text: string; hoverBorder: string; hoverShadow: string; iconBg: string; iconBorder: string; tag: string }> = {
+const colorMap: Record<ProkerColor, ColorConfig> = {
   orange:  { bg: 'bg-orange-50/50',  border: 'border-orange-100/60',  text: 'text-orange-700',  hoverBorder: 'hover:border-orange-200',  hoverShadow: 'hover:shadow-orange-100/50',  iconBg: 'bg-orange-100',  iconBorder: 'border-orange-200', tag: 'bg-orange-100 text-orange-700' },
   teal:    { bg: 'bg-teal-50/50',    border: 'border-teal-100/60',    text: 'text-teal-700',    hoverBorder: 'hover:border-teal-200',    hoverShadow: 'hover:shadow-teal-100/50',    iconBg: 'bg-teal-100',    iconBorder: 'border-teal-200',   tag: 'bg-teal-100 text-teal-700'   },
   lime:    { bg: 'bg-lime-50/50',    border: 'border-lime-100/60',    text: 'text-lime-700',    hoverBorder: 'hover:border-lime-200',    hoverShadow: 'hover:shadow-lime-100/50',    iconBg: 'bg-lime-100',    iconBorder: 'border-lime-200',   tag: 'bg-lime-100 text-lime-700'   },
@@ -132,7 +154,6 @@ const activeStage = ref<number | null>(null)
   <div class="min-h-screen bg-white text-slate-800 font-sans selection:bg-emerald-100 selection:text-emerald-900">
 
     <!-- Navbar -->
-
 
     <!-- Hero -->
     <section id="beranda" class="relative pt-20 pb-28 px-6 overflow-hidden">
@@ -311,7 +332,6 @@ const activeStage = ref<number | null>(null)
       </div>
     </section>
 
-
     <!-- Footer -->
     <footer class="border-t border-slate-100 py-10 px-6">
       <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -328,4 +348,3 @@ const activeStage = ref<number | null>(null)
     </footer>
   </div>
 </template>
-

@@ -7,17 +7,32 @@ const activeStep = ref<number | null>(null)
 const steps = [
   {
     num: '01', title: 'Prinsip 3R Harian',
-    desc: 'Bawa kantong belanja (Reduce), pakai wadah ulang (Reuse), pilah sampah daur ulang (Recycle).',
+    desc: 'Terapkan gaya hidup minim sampah dengan mengutamakan pengurangan di sumbernya (rumah tangga).',
+    details: [
+      'Reduce: Biasakan membawa kantong belanja berbahan kain saat ke pasar untuk menekan penggunaan plastik.',
+      'Reuse: Gunakan kembali wadah plastik atau kaca bekas selai/sirup untuk penyimpanan bumbu dapur.',
+      'Recycle: Kumpulkan dan sumbangkan sampah kertas atau plastik botol ke pengepul atau bank sampah.'
+    ],
     icon: '♻️', tags: ['Reduce', 'Reuse', 'Recycle'],
   },
   {
     num: '02', title: 'Kategori Tempat Sampah',
-    desc: 'Hijau (Organik): Sayur, buah, nasi, daun kering. Kuning (Anorganik): Botol plastik, kaleng, kardus. Merah (B3/Residu): Popok, baterai, wadah racun.',
+    desc: 'Biasakan membuang sampah sesuai dengan jenis dan warnanya untuk memudahkan proses daur ulang.',
+    details: [
+      'Warna Hijau (Organik): Khusus untuk sisa sayur, kulit buah, tulang ikan, nasi basi, dan dedaunan.',
+      'Warna Kuning (Anorganik): Khusus untuk botol plastik minuman, kaleng susu, kertas, dan kardus.',
+      'Warna Merah (B3/Residu): Khusus limbah berbahaya seperti popok bayi, baterai, dan wadah racun nyamuk.'
+    ],
     icon: '🗑️', tags: ['Hijau', 'Kuning', 'Merah'],
   },
   {
     num: '03', title: 'Ember Komposter',
-    desc: 'Cacah sampah organik, semprot EM4, tutup rapat 3-4 minggu hingga matang.',
+    desc: 'Ubah sampah organik dapur menjadi pupuk cair atau padat menggunakan ember komposter mandiri.',
+    details: [
+      'Siapkan ember bekas berventilasi; cacah sampah organik dapur menjadi ukuran lebih kecil.',
+      'Semprotkan cairan bioaktivator (seperti EM4 yang dilarutkan air) untuk mempercepat pembusukan.',
+      'Tutup ember rapat-rapat dan biarkan berfermentasi selama 3-4 minggu hingga menjadi kompos siap pakai.'
+    ],
     icon: '🪣', tags: ['Cacah', 'EM4', '3-4 Minggu'],
   },
 ]
@@ -68,7 +83,10 @@ const strategiList = [
             <div class="relative">
               <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center font-bold text-sm mb-5 border border-blue-100">{{ item.num }}</div>
               <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2"><span>{{ item.icon }}</span>{{ item.title }}</h3>
-              <p class="text-sm text-slate-500 leading-relaxed mb-5">{{ item.desc }}</p>
+              <p class="text-sm text-slate-500 leading-relaxed mb-3">{{ item.desc }}</p>
+              <ul v-if="item.details" class="text-sm text-slate-500 leading-relaxed mb-5 list-disc pl-4 space-y-1">
+                <li v-for="detail in item.details" :key="detail">{{ detail }}</li>
+              </ul>
               <div class="flex flex-wrap gap-2">
                 <span v-for="tag in item.tags" :key="tag" class="text-xs font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md">{{ tag }}</span>
               </div>
@@ -101,17 +119,6 @@ const strategiList = [
         </button>
       </div>
     </section>
-    <footer class="border-t border-slate-100 py-10 px-6">
-      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-2">
-          <div class="w-6 h-6 bg-blue-500 rounded-md flex items-center justify-center">
-            <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
-          </div>
-          <span class="text-sm font-semibold text-slate-700">LPPM KKN Guide</span>
-        </div>
-        <p class="text-xs text-slate-400">© 2026 Lembaga Penelitian dan Pengabdian kepada Masyarakat.</p>
-      </div>
-    </footer>
   </div>
 </template>
 

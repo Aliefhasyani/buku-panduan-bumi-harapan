@@ -9,28 +9,48 @@ const steps = [
   {
     num: '01',
     title: 'Pembuatan Lubang Tanah',
-    desc: 'Buat lubang silindris tegak lurus (vertikal) ke dalam tanah berdiameter 10 cm dengan kedalaman 80–100 cm menggunakan bor tanah di area resapan atau sekitar saluran air.',
+    desc: 'Buat lubang silindris tegak lurus (vertikal) ke dalam tanah berdiameter 10 cm dengan kedalaman 80–100 cm.',
+    details: [
+      'Gunakan bor tanah manual atau mesin untuk mempermudah pengerjaan.',
+      'Pilih lokasi di area resapan air, sekitar pepohonan, atau jalur air hujan.',
+      'Jaga jarak antar lubang minimal 50-100 cm agar struktur tanah tetap kuat.'
+    ],
     icon: '🕳️',
     tags: ['Bor Tanah', 'Ø 10 cm', '80–100 cm'],
   },
   {
     num: '02',
     title: 'Pemasangan Pipa PVC',
-    desc: 'Masukkan pipa PVC berlubang (ukuran 10 cm) yang telah dilengkapi penutup dop berlubang di bagian atas agar dinding tanah tidak mudah longsor dan tetap aman.',
+    desc: 'Masukkan pipa PVC berlubang sebagai penahan agar dinding tanah tidak longsor.',
+    details: [
+      'Gunakan pipa PVC ukuran 10 cm yang telah dilubangi kecil-kecil di sekelilingnya.',
+      'Pasang penutup dop yang juga berlubang di bagian atas pipa.',
+      'Pastikan posisi penutup rata dengan permukaan tanah untuk menghindari tersandung.'
+    ],
     icon: '🛠️',
     tags: ['PVC Ø 10', 'Dop Berlubang', 'Struktur'],
   },
   {
     num: '03',
     title: 'Pengisian Sampah Organik',
-    desc: 'Masukkan sampah organik rumah tangga (seperti sisa makanan, kulit buah, dan daun kering) secara bertahap ke dalam lubang hingga terisi penuh.',
+    desc: 'Isi lubang dengan sampah organik rumah tangga atau sisa tanaman secara bertahap.',
+    details: [
+      'Masukkan sisa makanan, kulit buah, atau sayuran yang belum dimasak.',
+      'Tambahkan daun kering atau ranting kecil untuk menjaga sirkulasi udara.',
+      'Hindari memasukkan sampah plastik, kaca, atau bahan anorganik lainnya.'
+    ],
     icon: '🍂',
     tags: ['Sisa Makanan', 'Kulit Buah', 'Daun Kering'],
   },
   {
     num: '04',
     title: 'Panen Kompos & Perawatan',
-    desc: 'Setelah 2–3 bulan, sampah yang terurai dapat dipanen menjadi kompos matang yang siap menyuburkan tanaman. Lubang kemudian diisi kembali dengan sampah organik baru.',
+    desc: 'Lakukan perawatan rutin dan panen kompos setelah proses pembusukan selesai.',
+    details: [
+      'Tunggu sekitar 2–3 bulan hingga sampah organik terurai sepenuhnya.',
+      'Angkat kompos menggunakan alat pengait atau bor tanah, lalu gunakan untuk tanaman.',
+      'Isi kembali lubang yang sudah kosong dengan sampah organik baru.'
+    ],
     icon: '♻️',
     tags: ['2–3 Bulan', 'Kompos', 'Isi Ulang'],
   },
@@ -130,7 +150,10 @@ const strategiList = [
                 <span>{{ item.icon }}</span>
                 {{ item.title }}
               </h3>
-              <p class="text-sm text-slate-500 leading-relaxed mb-5">{{ item.desc }}</p>
+              <p class="text-sm text-slate-500 leading-relaxed mb-3">{{ item.desc }}</p>
+              <ul v-if="item.details" class="text-sm text-slate-500 leading-relaxed mb-5 list-disc pl-4 space-y-1">
+                <li v-for="detail in item.details" :key="detail">{{ detail }}</li>
+              </ul>
               <div class="flex flex-wrap gap-2">
                 <span v-for="tag in item.tags" :key="tag" class="text-xs font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md">
                   {{ tag }}
@@ -180,21 +203,6 @@ const strategiList = [
         </button>
       </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-slate-100 py-10 px-6">
-      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-2">
-          <div class="w-6 h-6 bg-emerald-500 rounded-md flex items-center justify-center">
-            <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-            </svg>
-          </div>
-          <span class="text-sm font-semibold text-slate-700">LPPM KKN Guide</span>
-        </div>
-        <p class="text-xs text-slate-400">© 2026 Lembaga Penelitian dan Pengabdian kepada Masyarakat.</p>
-      </div>
-    </footer>
   </div>
 </template>
 

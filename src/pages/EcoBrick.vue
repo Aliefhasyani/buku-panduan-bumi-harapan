@@ -9,28 +9,48 @@ const steps = [
   {
     num: '01',
     title: 'Persiapan Alat & Bahan',
-    desc: 'Siapkan limbah plastik yang bersih & kering, botol plastik bekas dengan ukuran seragam (500ml atau 1.5L), tongkat kayu penumbuk, serta timbangan.',
+    desc: 'Kumpulkan dan persiapkan seluruh kebutuhan material utama sebelum memulai proses.',
+    details: [
+      'Siapkan botol plastik bekas ukuran seragam (500ml atau 1.5L) dalam kondisi kering.',
+      'Kumpulkan limbah plastik lunak seperti bungkus makanan, kantong kresek, atau kemasan saset.',
+      'Sediakan tongkat kayu/bambu berujung tumpul sebagai penumbuk dan timbangan digital.'
+    ],
     icon: '🛠️',
     tags: ['Botol Plastik', 'Tongkat', 'Timbangan'],
   },
   {
     num: '02',
     title: 'Pembersihan & Pemotongan',
-    desc: 'Cuci seluruh limbah plastik hingga bebas kotoran/minyak, keringkan secara sempurna, lalu gunting menjadi potongan-potongan kecil agar mudah dimasukkan.',
+    desc: 'Pastikan plastik dalam kondisi bersih dan terpotong untuk mencegah pertumbuhan bakteri dan memudahkan pemadatan.',
+    details: [
+      'Cuci plastik dengan sabun jika kotor atau berminyak, lalu jemur hingga benar-benar kering.',
+      'Gunting plastik menjadi potongan kecil-kecil agar dapat mengisi celah botol secara maksimal.',
+      'Pisahkan plastik berdasarkan warna jika ingin membuat pola desain pada botol.'
+    ],
     icon: '✂️',
     tags: ['Cuci', 'Keringkan', 'Gunting'],
   },
   {
     num: '03',
     title: 'Pemadatan Plastik',
-    desc: 'Masukkan potongan plastik ke dalam botol dan tekan secara berkala menggunakan tongkat hingga sangat padat. Target bobot minimal: 330 gram (botol 1.5L) atau 150 gram (botol 500ml). Tutup botol hingga rapat.',
+    desc: 'Isi dan padatkan plastik ke dalam botol untuk mencapai kepadatan dan kekuatan struktural.',
+    details: [
+      'Masukkan plastik lunak berwarna terlebih dahulu di bagian dasar botol.',
+      'Tekan kuat plastik menggunakan tongkat penumbuk setiap kali memasukkan segenggam plastik.',
+      'Pastikan tidak ada rongga udara. Target berat: botol 1.5L = 330g, botol 500ml = 150g.'
+    ],
     icon: '⚖️',
     tags: ['Padat', 'Min. 330g', 'Rapat'],
   },
   {
     num: '04',
     title: 'Pemanfaatan & Assembly',
-    desc: 'Rangkai botol-botol Eco-Brick yang telah padat menggunakan perekat/tali khusus menjadi struktur berguna seperti meja, kursi ekologis, atau pembatas taman.',
+    desc: 'Rangkai botol-botol Eco-Brick yang telah memenuhi standar menjadi furnitur fungsional.',
+    details: [
+      'Gunakan lem silikon/kaca atau semen untuk merangkai botol secara permanen.',
+      'Susun melingkar atau persegi menjadi tempat duduk, meja kecil, atau pot tanaman.',
+      'Pastikan susunan seimbang agar konstruksi kuat menahan beban.'
+    ],
     icon: '🪑',
     tags: ['Rangkai', 'Furnitur', 'Pembatas'],
   },
@@ -130,7 +150,10 @@ const strategiList = [
                 <span>{{ item.icon }}</span>
                 {{ item.title }}
               </h3>
-              <p class="text-sm text-slate-500 leading-relaxed mb-5">{{ item.desc }}</p>
+              <p class="text-sm text-slate-500 leading-relaxed mb-3">{{ item.desc }}</p>
+              <ul v-if="item.details" class="text-sm text-slate-500 leading-relaxed mb-5 list-disc pl-4 space-y-1">
+                <li v-for="detail in item.details" :key="detail">{{ detail }}</li>
+              </ul>
               <div class="flex flex-wrap gap-2">
                 <span v-for="tag in item.tags" :key="tag" class="text-xs font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md">
                   {{ tag }}
@@ -180,21 +203,6 @@ const strategiList = [
         </button>
       </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-slate-100 py-10 px-6">
-      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-2">
-          <div class="w-6 h-6 bg-emerald-500 rounded-md flex items-center justify-center">
-            <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-            </svg>
-          </div>
-          <span class="text-sm font-semibold text-slate-700">LPPM KKN Guide</span>
-        </div>
-        <p class="text-xs text-slate-400">© 2026 Lembaga Penelitian dan Pengabdian kepada Masyarakat.</p>
-      </div>
-    </footer>
   </div>
 </template>
 

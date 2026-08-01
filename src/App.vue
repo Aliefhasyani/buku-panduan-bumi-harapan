@@ -11,6 +11,7 @@ import GreenHouseToga from './pages/GreenHouseToga.vue'
 import PlatformDigital from './pages/PlatformDigital.vue'
 import Biopori from './pages/Biopori.vue'
 import PetaGis from './pages/PetaGis.vue'
+import Footer from './ui/Footer.vue'
 
 const currentPage = ref('home')
 
@@ -34,5 +35,7 @@ const handleNavigate = (page: string) => {
     <PlatformDigital v-else-if="currentPage === 'platform-digital'" @navigate="handleNavigate" />
     <Biopori v-else-if="currentPage === 'biopori' || currentPage === 'proker-biopori'" @navigate="handleNavigate" />
     <PetaGis v-else-if="currentPage === 'peta-gis'" @navigate="handleNavigate" />
+    
+    <Footer />
   </div>
 </template>

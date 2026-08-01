@@ -7,22 +7,42 @@ const activeStep = ref<number | null>(null)
 const steps = [
   {
     num: '01', title: 'Persiapan Biopond',
-    desc: 'Siapkan wadah terpelindung dari hujan & terik langsung.',
+    desc: 'Siapkan kandang lalat BSF dan biopond sebagai tempat pembesaran larva (maggot).',
+    details: [
+      'Gunakan wadah plastik atau bak kayu berlapis terpal berukuran minimal 1x1 meter.',
+      'Tempatkan biopond di area yang teduh, terhindar dari hujan dan sinar matahari langsung.',
+      'Sediakan penutup jaring kelambu untuk mencegah lalat liar bertelur di dalam wadah.'
+    ],
     icon: '📦', tags: ['Wadah', 'Terlindung', 'Teduh'],
   },
   {
     num: '02', title: 'Pemberian Pakan',
-    desc: 'Masukkan sampah organik terpotong 1-2 kali sehari sesuai kapasitas larva.',
+    desc: 'Berikan sampah organik sebagai sumber makanan utama bagi pertumbuhan maggot.',
+    details: [
+      'Cacah atau potong sampah sisa makanan rumah tangga agar lebih mudah diurai maggot.',
+      'Beri pakan sebanyak 1-2 kali sehari, sesuaikan takaran dengan kepadatan larva di biopond.',
+      'Pastikan ketebalan pakan tidak lebih dari 5 cm agar larva di bagian bawah tetap bisa bernapas.'
+    ],
     icon: '🥬', tags: ['Sampah Organik', '1-2x Sehari', 'Dipotong'],
   },
   {
     num: '03', title: 'Kontrol Kelembapan',
-    desc: 'Jaga kelembapan 60-70%. Tambahkan dedak/sekam jika terlalu basah.',
+    desc: 'Jaga kondisi biopond agar tetap stabil untuk mencegah kematian larva dan timbulnya bau.',
+    details: [
+      'Pertahankan tingkat kelembapan media pada kisaran 60-70% (tekstur seperti kompos lembap).',
+      'Taburkan serbuk gergaji, dedak, atau sekam kering jika media terlalu basah atau berair.',
+      'Semprotkan air secukupnya menggunakan semprotan halus jika media terlihat terlalu kering.'
+    ],
     icon: '💧', tags: ['60-70%', 'Dedak/Sekam', 'Kontrol'],
   },
   {
     num: '04', title: 'Panen',
-    desc: 'Panen maggot segar usia 14-21 hari untuk pakan. Ambil kasgot untuk pupuk.',
+    desc: 'Lakukan panen maggot untuk pakan ternak dan panen kasgot sebagai pupuk organik.',
+    details: [
+      'Panen maggot segar (Fresh Maggot) pada usia 14-21 hari saat larva berukuran maksimal.',
+      'Saring sisa pakan yang telah menghitam dan menjadi remah-remah, ini disebut pupuk kasgot.',
+      'Sisakan sebagian larva prepupa untuk dibiarkan menjadi lalat BSF agar siklus terus berlanjut.'
+    ],
     icon: '🪱', tags: ['14-21 Hari', 'Maggot', 'Kasgot'],
   }
 ]
@@ -73,7 +93,10 @@ const strategiList = [
             <div class="relative">
               <div class="w-10 h-10 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center font-bold text-sm mb-5 border border-teal-100">{{ item.num }}</div>
               <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2"><span>{{ item.icon }}</span>{{ item.title }}</h3>
-              <p class="text-sm text-slate-500 leading-relaxed mb-5">{{ item.desc }}</p>
+              <p class="text-sm text-slate-500 leading-relaxed mb-3">{{ item.desc }}</p>
+              <ul v-if="item.details" class="text-sm text-slate-500 leading-relaxed mb-5 list-disc pl-4 space-y-1">
+                <li v-for="detail in item.details" :key="detail">{{ detail }}</li>
+              </ul>
               <div class="flex flex-wrap gap-2">
                 <span v-for="tag in item.tags" :key="tag" class="text-xs font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md">{{ tag }}</span>
               </div>
@@ -106,17 +129,6 @@ const strategiList = [
         </button>
       </div>
     </section>
-    <footer class="border-t border-slate-100 py-10 px-6">
-      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-2">
-          <div class="w-6 h-6 bg-teal-500 rounded-md flex items-center justify-center">
-            <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
-          </div>
-          <span class="text-sm font-semibold text-slate-700">LPPM KKN Guide</span>
-        </div>
-        <p class="text-xs text-slate-400">© 2026 Lembaga Penelitian dan Pengabdian kepada Masyarakat.</p>
-      </div>
-    </footer>
   </div>
 </template>
 

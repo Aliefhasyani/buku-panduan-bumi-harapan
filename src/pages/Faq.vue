@@ -88,12 +88,6 @@ const faqList = [
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-center text-sm mt-12">
-      <div class="max-w-7xl mx-auto px-4">
-        <p>© 2026 Lembaga Penelitian dan Pengabdian kepada Masyarakat (LPPM). All rights reserved.</p>
-        <p class="mt-1 text-xs text-slate-500">KKN Tematik Perubahan Iklim — 45 Hari Pelaksanaan.</p>
-      </div>
-    </footer>
   </div>
 </template>
 

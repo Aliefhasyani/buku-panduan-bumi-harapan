@@ -9,42 +9,72 @@ const steps = [
   {
     num: '01',
     title: 'Penempatan',
-    desc: 'Dapur ventilasi baik / area terbuka. Letakkan di alas keras datar (semen/bata). Bebaskan radius 50 cm.',
+    desc: 'Pilih lokasi yang aman dan ideal untuk meletakkan Rocket Stove sebelum dinyalakan.',
+    details: [
+      'Tempatkan tungku di dapur dengan ventilasi udara yang baik atau di area terbuka.',
+      'Gunakan alas yang keras, datar, dan tahan api (seperti plesteran semen atau bata merah).',
+      'Bebaskan area sekitar tungku (radius minimal 50 cm) dari benda yang mudah terbakar.'
+    ],
     icon: '📍',
     tags: ['Ventilasi', 'Alas Keras', 'Radius 50cm'],
   },
   {
     num: '02',
     title: 'Bahan Bakar',
-    desc: 'Ranting kering, potongan papan, tempurung kelapa (1-3 cm). Harus kering sempurna.',
+    desc: 'Siapkan biomassa yang ukurannya pas agar proses pembakaran di dalam ruang bakar efisien.',
+    details: [
+      'Gunakan ranting pohon kering, potongan papan sisa, atau tempurung kelapa.',
+      'Potong kayu bakar menjadi ukuran kecil (diameter sekitar 1-3 cm) agar mudah dimasukkan.',
+      'Pastikan seluruh kayu dalam kondisi kering sempurna untuk menghindari asap tebal.'
+    ],
     icon: '🪵',
     tags: ['Ranting', 'Papan', 'Tempurung'],
   },
   {
     num: '03',
     title: 'Penyulutan Api',
-    desc: 'Masukkan pemantik (daun/kertas/sabut) ke saluran bawah. Susun kayu kecil melintang, lalu bakar. Prinsip draft akan menyedot api ke atas.',
+    desc: 'Mulai proses pembakaran dengan memanfaatkan aliran udara vertikal (efek cerobong/draft).',
+    details: [
+      'Masukkan bahan pemantik seperti daun kering, kertas bekas, atau sabut ke dasar tungku.',
+      'Susun beberapa kayu kecil secara menyilang di atas pemantik agar api mudah merambat.',
+      'Nyalakan api dari saluran udara bawah; biarkan prinsip draft menyedot api kuat ke atas.'
+    ],
     icon: '🔥',
     tags: ['Pemantik', 'Draft Vertikal', 'Saluran Bawah'],
   },
   {
     num: '04',
     title: 'Pengontrolan',
-    desc: 'Dorong kayu perlahan saat terbakar. Jaga saluran udara tidak tersumbat. Tambah kayu jika api mengecil.',
+    desc: 'Lakukan pemeliharaan nyala api selama proses memasak agar suhu tetap konstan.',
+    details: [
+      'Dorong ujung kayu bakar secara perlahan ke dalam ruang bakar saat mulai memendek.',
+      'Jaga agar saluran udara bagian bawah tidak tertutup rapat oleh tumpukan abu tebal.',
+      'Segera tambahkan potongan kayu kecil baru jika nyala api mulai terlihat mengecil.'
+    ],
     icon: '🎛️',
     tags: ['Dorong Kayu', 'Saluran Udara', 'Kontrol'],
   },
   {
     num: '05',
     title: 'Memasak',
-    desc: 'Letakkan wadah di atas dudukan cerobong. Pastikan ada celah aliran asap.',
+    desc: 'Letakkan peralatan masak dengan benar agar panas api tersalurkan dengan maksimal.',
+    details: [
+      'Tempatkan panci atau wajan tepat di atas dudukan cerobong (skirt) tungku.',
+      'Pastikan masih terdapat celah di sekitar panci agar asap hasil pembakaran bisa keluar.',
+      'Gunakan tutup panci selama memasak untuk mempercepat proses pematangan.'
+    ],
     icon: '🍳',
     tags: ['Dudukan', 'Cerobong', 'Celah Asap'],
   },
   {
     num: '06',
     title: 'Pemadaman & Perawatan',
-    desc: 'Tarik sisa kayu bakar & celup air. Biarkan tungku dingin alami. Buang sisa abu di bagian bawah secara berkala.',
+    desc: 'Matikan api dengan aman dan bersihkan tungku untuk menjaga keawetan strukturnya.',
+    details: [
+      'Tarik sisa kayu yang belum habis terbakar keluar, lalu celupkan ujungnya ke dalam air.',
+      'Biarkan badan tungku mendingin secara alami di udara terbuka (jangan disiram air).',
+      'Buang sisa abu di bagian bawah lorong secara berkala agar sirkulasi udara selalu lancar.'
+    ],
     icon: '🧹',
     tags: ['Celup Air', 'Dingin Alami', 'Buang Abu'],
   },
@@ -150,7 +180,10 @@ const strategiList = [
                 <span>{{ item.icon }}</span>
                 {{ item.title }}
               </h3>
-              <p class="text-sm text-slate-500 leading-relaxed mb-5">{{ item.desc }}</p>
+              <p class="text-sm text-slate-500 leading-relaxed mb-3">{{ item.desc }}</p>
+              <ul v-if="item.details" class="text-sm text-slate-500 leading-relaxed mb-5 list-disc pl-4 space-y-1">
+                <li v-for="detail in item.details" :key="detail">{{ detail }}</li>
+              </ul>
               <div class="flex flex-wrap gap-2">
                 <span v-for="tag in item.tags" :key="tag" class="text-xs font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md">
                   {{ tag }}
@@ -200,21 +233,6 @@ const strategiList = [
         </button>
       </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-slate-100 py-10 px-6">
-      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-2">
-          <div class="w-6 h-6 bg-orange-500 rounded-md flex items-center justify-center">
-            <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-            </svg>
-          </div>
-          <span class="text-sm font-semibold text-slate-700">LPPM KKN Guide</span>
-        </div>
-        <p class="text-xs text-slate-400">© 2026 Lembaga Penelitian dan Pengabdian kepada Masyarakat.</p>
-      </div>
-    </footer>
   </div>
 </template>
 

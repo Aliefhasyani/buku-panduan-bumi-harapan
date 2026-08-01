@@ -7,22 +7,42 @@ const activeStep = ref<number | null>(null)
 const steps = [
   {
     num: '01', title: 'Perawatan Sarana',
-    desc: 'Bersihkan atap UV dari debu, atur ventilasi insect net.',
+    desc: 'Jaga kebersihan dan sirkulasi udara Green House agar tanaman tumbuh optimal.',
+    details: [
+      'Bersihkan atap plastik UV secara berkala agar sinar matahari tidak terhalang debu.',
+      'Periksa dan bersihkan dinding insect net untuk memastikan ventilasi udara lancar.',
+      'Lakukan pengecekan rutin pada struktur rak atau rangka jika terdapat kerusakan.'
+    ],
     icon: '🧹', tags: ['Atap UV', 'Ventilasi', 'Insect Net'],
   },
   {
     num: '02', title: 'Penyiraman & Pupuk',
-    desc: 'Siram 2x sehari (pagi/sore). Beri kasgot/kompos 2 minggu sekali.',
+    desc: 'Lakukan perawatan rutin untuk menjaga asupan air dan nutrisi tanaman TOGA.',
+    details: [
+      'Siram tanaman 2x sehari (pagi dan sore) atau sesuai tingkat kelembapan tanah.',
+      'Gunakan pupuk organik seperti kasgot atau kompos secara rutin setiap 2 minggu sekali.',
+      'Pangkas daun kering atau bagian tanaman yang sakit untuk mencegah penyebaran hama.'
+    ],
     icon: '🚿', tags: ['2x Sehari', 'Kasgot', '2 Minggu Sekali'],
   },
   {
     num: '03', title: 'Penggunaan',
-    desc: 'Rebus Jahe/Temulawak (imun), Daun Sirih (antiseptik), Lidah Buaya (kulit).',
+    desc: 'Manfaatkan hasil panen TOGA secara bijak untuk kesehatan keluarga sehari-hari.',
+    details: [
+      'Jahe/Temulawak dapat direbus untuk menjaga daya tahan tubuh dan mengatasi masuk angin.',
+      'Daun Sirih dapat dimanfaatkan sebagai antiseptik alami atau obat kumur.',
+      'Lidah Buaya dioleskan untuk perawatan luka bakar ringan, rambut, atau kulit.'
+    ],
     icon: '🌿', tags: ['Jahe', 'Sirih', 'Lidah Buaya'],
   },
   {
     num: '04', title: 'Pembibitan',
-    desc: 'Warga dapat mengambil bibit/stek untuk ditanam di rumah.',
+    desc: 'Lakukan perbanyakan tanaman untuk memperluas jangkauan manfaat ke rumah warga.',
+    details: [
+      'Fasilitasi warga untuk mengambil bibit/stek secara gratis dari Green House.',
+      'Berikan panduan singkat tentang cara memindahkan bibit ke polybag atau pot mandiri.',
+      'Terapkan sistem barter atau subsidi silang bibit bagi warga yang sudah berhasil panen.'
+    ],
     icon: '🌱', tags: ['Bibit', 'Stek', 'Rumah'],
   }
 ]
@@ -73,7 +93,10 @@ const strategiList = [
             <div class="relative">
               <div class="w-10 h-10 bg-green-50 text-green-600 rounded-xl flex items-center justify-center font-bold text-sm mb-5 border border-green-100">{{ item.num }}</div>
               <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2"><span>{{ item.icon }}</span>{{ item.title }}</h3>
-              <p class="text-sm text-slate-500 leading-relaxed mb-5">{{ item.desc }}</p>
+              <p class="text-sm text-slate-500 leading-relaxed mb-3">{{ item.desc }}</p>
+              <ul v-if="item.details" class="text-sm text-slate-500 leading-relaxed mb-5 list-disc pl-4 space-y-1">
+                <li v-for="detail in item.details" :key="detail">{{ detail }}</li>
+              </ul>
               <div class="flex flex-wrap gap-2">
                 <span v-for="tag in item.tags" :key="tag" class="text-xs font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md">{{ tag }}</span>
               </div>
@@ -106,17 +129,6 @@ const strategiList = [
         </button>
       </div>
     </section>
-    <footer class="border-t border-slate-100 py-10 px-6">
-      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-2">
-          <div class="w-6 h-6 bg-green-500 rounded-md flex items-center justify-center">
-            <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
-          </div>
-          <span class="text-sm font-semibold text-slate-700">LPPM KKN Guide</span>
-        </div>
-        <p class="text-xs text-slate-400">© 2026 Lembaga Penelitian dan Pengabdian kepada Masyarakat.</p>
-      </div>
-    </footer>
   </div>
 </template>
 

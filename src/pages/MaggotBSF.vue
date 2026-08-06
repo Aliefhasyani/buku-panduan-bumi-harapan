@@ -133,26 +133,48 @@ const strategiList = [
           <strong class="text-slate-700">Manfaat:</strong> Kurangi sampah 80%,
           pakan murah, pupuk kasgot subur.
         </p>
-        <a
-          href="/buku_panduan_saku_kkn_v5.pdf"
-          download="buku-panduan-maggot.pdf"
-          class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-5 py-3 rounded-full shadow-sm transition-all duration-200 mb-10"
-        >
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
+        <div class="flex flex-wrap gap-4 mb-10">
+          <a
+            href="/buku-hirisasi-maggot.pdf"
+            download="buku-hirisasi-maggot.pdf"
+            class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-5 py-3 rounded-full shadow-sm transition-all duration-200"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 3v12m0 0l-4-4m4 4l4-4M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"
-            />
-          </svg>
-          Unduh Buku Panduan Maggot (PDF)
-        </a>
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 3v12m0 0l-4-4m4 4l4-4M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"
+              />
+            </svg>
+            Unduh Buku Hilirisasi Maggot (PDF)
+          </a>
+          <a
+            href="/buku_panduan_saku_kkn_v5.pdf"
+            download="buku-panduan-maggot.pdf"
+            class="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 font-semibold px-5 py-3 rounded-full border border-slate-200 shadow-sm transition-all duration-200"
+          >
+            <svg
+              class="w-5 h-5 text-slate-500"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 3v12m0 0l-4-4m4 4l4-4M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"
+              />
+            </svg>
+            Unduh Buku Panduan (PDF)
+          </a>
+        </div>
         <div class="flex flex-wrap gap-3">
           <div
             class="flex items-center gap-2 bg-white border border-slate-100 text-slate-600 text-sm font-medium px-4 py-2 rounded-full"

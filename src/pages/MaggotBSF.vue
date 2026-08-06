@@ -134,8 +134,8 @@ const strategiList = [
           pakan murah, pupuk kasgot subur.
         </p>
         <a
-          href="/buku-hirisasi-maggot.odt"
-          download="buku-hirisasi-maggot.odt"
+          href="/buku_panduan_saku_kkn_v5.pdf"
+          download="buku-panduan-maggot.pdf"
           class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-5 py-3 rounded-full shadow-sm transition-all duration-200 mb-10"
         >
           <svg
@@ -151,7 +151,7 @@ const strategiList = [
               d="M12 3v12m0 0l-4-4m4 4l4-4M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"
             />
           </svg>
-          Unduh Buku Panduan Maggot
+          Unduh Buku Panduan Maggot (PDF)
         </a>
         <div class="flex flex-wrap gap-3">
           <div

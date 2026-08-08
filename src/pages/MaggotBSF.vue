@@ -135,7 +135,7 @@ const strategiList = [
         </p>
         <div class="flex flex-wrap gap-4 mb-10">
           <a
-            href="/buku-hirisasi-maggot.pdf"
+            href="/maggot.pdf"
             download="buku-hirisasi-maggot.pdf"
             class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-5 py-3 rounded-full shadow-sm transition-all duration-200"
           >
